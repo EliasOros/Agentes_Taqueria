@@ -60,7 +60,7 @@ public class InterfazServidor extends JFrame implements ActionListener{
         String comando = e.getActionCommand();
         switch(comando){
             case "imprimir":
-                CrearPDF archivo = new CrearPDF(aux, efectivo_ingresado, total);
+                CrearTXT archivo = new CrearTXT(aux, efectivo_ingresado, total);
                 archivo.escribir();
             break;
         }

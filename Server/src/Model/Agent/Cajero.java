@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Model.Socket.SocketServidor;
-import View.CrearPDF;
+import View.CrearTXT;
 import View.InterfazServidor;
 
 import java.text.DecimalFormat;
