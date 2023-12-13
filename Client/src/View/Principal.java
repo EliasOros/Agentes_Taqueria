@@ -2,11 +2,17 @@ package View;
 
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
@@ -44,6 +50,17 @@ public class Principal extends JFrame {
 		btnIniciarOrden.setForeground(new Color(255, 255, 0));
 		btnIniciarOrden.setBounds(72, 126, 174, 76);
 		getContentPane().add(btnIniciarOrden);
+		btnIniciarOrden.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                
+	            	Orden orden = new Orden();
+	            	// Close the current window
+	                JFrame currentFrame = (JFrame) SwingUtilities.getRoot((Component) e.getSource());
+	                currentFrame.dispose();
+	            	
+	            }
+	        });
 		
 		
 		setVisible(true);

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model.Socket;
 
 import java.io.DataInputStream;
@@ -14,11 +11,7 @@ import javax.swing.JTextArea;
 import Model.Agent.Cajero;
 import View.InterfazServidor;
 
-/*
-* Proyecto Final - Inteligencia Artificial
-* 
-* Elaborado por: Eduardo Aarón Olmedo Mateos y Kevin Alexis Martinez Sanchez
-*/
+
 
 public class SocketServidor extends Thread{
     private InterfazServidor vista;
