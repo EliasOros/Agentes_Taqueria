@@ -1,9 +1,6 @@
-package Model.Ontologia;
+package Model.Objetos;
 
-import jade.content.Concept;
-
-public class Producto implements Concept{
-
+public class Producto {
 	private String nombre;
 	private String precio;
 	private int cantidad;
@@ -27,6 +24,4 @@ public class Producto implements Concept{
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	
-		
 }

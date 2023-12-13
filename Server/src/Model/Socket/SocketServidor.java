@@ -6,12 +6,14 @@ package Model.Socket;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import Model.Agent.Cajero;
+import Model.Objetos.Producto;
 import View.InterfazServidor;
 
 /*
@@ -22,6 +24,7 @@ import View.InterfazServidor;
 
 public class SocketServidor extends Thread{
     private InterfazServidor vista;
+    private Cajero ca;
     
     public SocketServidor(InterfazServidor vista){
         this.vista = vista;
@@ -33,18 +36,28 @@ public class SocketServidor extends Thread{
         try{
             ServerSocket servidor = new ServerSocket(5000);
             
-            while(true){
+            while(){
                 Socket socket = servidor.accept();
+                /*
                 DataInputStream entrada = new DataInputStream(socket.getInputStream());
-                String mensaje = entrada.readUTF();
-                Cajero.pedido = mensaje;
+                Double mensaje = entrada.readDouble();
+                */
+                
+                ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
+                Producto prod = (Producto) entrada.readObject();
+                
+                
+                
                 vista.area_texto.append("\n\nOrden recibida del vendedor: \n" + Cajero.pedido);
                 servidor.close();
             }
 
       }catch(IOException e){
           
-      }
+      } catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
     
 }

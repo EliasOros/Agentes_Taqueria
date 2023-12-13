@@ -9,8 +9,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-import Model.Venta;
-import View.InterfazCliente;
+
+import Model.Ontologia.Producto;
+import View.InterfazCli;
+
 
 /*
 * Proyecto Final - Inteligencia Artificial
@@ -19,16 +21,16 @@ import View.InterfazCliente;
 */
 
 public class ControladorCliente implements ActionListener{
-    protected InterfazCliente vista;
-    public ArrayList<Venta> pedido_pizzas;
-    public String pedido = "";
+    protected InterfazCli vista;
+    public ArrayList<Producto> pedido;
+    
     public double pago_final = 0;
     DecimalFormat formato = new DecimalFormat("#.00");
     
-    public ControladorCliente(InterfazCliente vista){
+    public ControladorCliente(InterfazCli vista){
         this.vista = vista;        
     }
-    
+    /*
     public void iniciar() {
         vista.setVisible(true);
         this.vista.agregar.setActionCommand("agregar");
@@ -95,20 +97,20 @@ public class ControladorCliente implements ActionListener{
         vista.cantidad.setText("");
         vista.id.setText("");
     }
-
+*/
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
         
         switch(comando){
             case "agregar":
-                agregarProducto();
+                //agregarProducto();
             break;
             case "solicitar":
-                solicitarCompra();
+               // solicitarCompra();
             break;
             case "pagar":
-                pagar();
+               // pagar();
             break;
             default:
             break;

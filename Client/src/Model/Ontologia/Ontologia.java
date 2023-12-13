@@ -17,6 +17,7 @@ public class Ontologia extends Ontology{
 	
 	public static final String PRODUCTO_NOMBRE = "nombre";
 	public static final String PRODUCTO_PRECIO = "precio";
+	public static final String PRODUCTO_CANTIDAD = "cantidad";
 	
 	public static final String COMUNICACION = "Comunicacion";
 	public static final String OFERTA_FRUTA = "producto";
@@ -25,6 +26,11 @@ public class Ontologia extends Ontology{
 	public static final String ACCION_FRUTA = "producto";
 	
 	private static Ontology instancia = new Ontologia();
+	
+
+	public static Ontology getInstance() {
+		return instancia;
+	}
 	
 	private Ontologia() {
 		
@@ -39,7 +45,9 @@ public class Ontologia extends Ontology{
 		       // Estructura del esquema para el concepto FRUTA
 		       ConceptSchema cs = (ConceptSchema) getSchema(PRODUCTO);
 		       cs.add(PRODUCTO_NOMBRE, (PrimitiveSchema) getSchema(BasicOntology.STRING));
-		       cs.add(PRODUCTO_PRECIO, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+		       cs.add(PRODUCTO_PRECIO, (PrimitiveSchema) getSchema(BasicOntology.FLOAT));
+		       cs.add(PRODUCTO_CANTIDAD, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+		       
 		 
 		       // Estructura del esquema para el predicado OFERTA
 		       PredicateSchema ps = (PredicateSchema) getSchema(COMUNICACION);

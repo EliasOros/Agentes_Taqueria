@@ -17,6 +17,11 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.GridBagLayout;
+import java.awt.Font;
+import javax.swing.BoxLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class InterfazCli extends JFrame {
 
@@ -433,7 +438,33 @@ public class InterfazCli extends JFrame {
 		
 		JPanel panel_4 = new JPanel();
 		panel_3.add(panel_4);
-		panel_4.setLayout(new GridLayout(1, 0, 0, 0));
+		GridBagLayout gbl_panel_4 = new GridBagLayout();
+		gbl_panel_4.columnWidths = new int[]{213, 0};
+		gbl_panel_4.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_panel_4.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gbl_panel_4.rowWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
+		panel_4.setLayout(gbl_panel_4);
+		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_3.gridx = 0;
+		gbc_lblNewLabel_3.gridy = 0;
+		panel_4.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		
+		JButton btnNewButton = new JButton("New button");
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridy = 1;
+		panel_4.add(btnNewButton, gbc_btnNewButton);
+		
+		JPanel panel_5 = new JPanel();
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.fill = GridBagConstraints.BOTH;
+		gbc_panel_5.gridx = 0;
+		gbc_panel_5.gridy = 2;
+		panel_4.add(panel_5, gbc_panel_5);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_3.add(scrollPane);
