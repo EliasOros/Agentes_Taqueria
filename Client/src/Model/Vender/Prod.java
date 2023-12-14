@@ -1,11 +1,16 @@
-package Model.Objetos;
+package Model.Vender;
 
-public class Producto {
+public class Prod {
 	private String nombre;
 	private String precio;
 	private int cantidad;
-	
-	
+
+    public Prod(String nombre, String precio, int cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
 	public String getNombre() {
 		return nombre;
 	}

@@ -4,32 +4,75 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
-
+import Model.Agent.Mesero;
 import Model.Ontologia.Producto;
+import Model.Vender.Prod;
 import View.InterfazCli;
+import View.Orden;
+import View.Principal;
 
 
-/*
-* Proyecto Final - Inteligencia Artificial
-* 
-* Elaborado por: Eduardo Aarón Olmedo Mateos y Kevin Alexis Martinez Sanchez
-*/
 
-public class ControladorCliente implements ActionListener{
+public class ControladorCliente {
     protected InterfazCli vista;
-    public ArrayList<Producto> pedido;
-    
+    private Orden Ord;
+    private ArrayList<Prod> pedido;
+    private Principal p = new Principal();
+    private ControladorCliente cc;
     public double pago_final = 0;
     DecimalFormat formato = new DecimalFormat("#.00");
-    
-    public ControladorCliente(InterfazCli vista){
-        this.vista = vista;        
+
+    public ArrayList<Prod> getPedido() {
+        return pedido;
     }
+
+    public void setPedido(ArrayList<Prod> pedido) {
+        this.pedido = pedido;
+    }
+
+    public ControladorCliente getCc() {
+        return cc;
+    }
+
+    public void setCc(ControladorCliente cc) {
+        this.cc = cc;
+    }
+    
+    public void obtenerPedido(){
+        
+        setCc(p.getCc());
+        
+    }
+    
+    /*
+    
+    
+    public static void ObtenerOrden(ArrayList<Prod> pedido){
+    	Runtime rt = Runtime.instance();
+    	Profile profile = new ProfileImpl();
+    	//profile.setParameter(Profile.MAIN_HOST, "");//Direccion IP de la computadora
+    	//profile.setParameter(Profile.MAIN_PORT, "");//Puerto
+    	
+    	ContainerController cc = rt.createMainContainer(profile);
+    	System.out.println("Entro a la container");
+    	try {
+    		
+			AgentController a = cc.createNewAgent("Mesero", "src.Model.Agent.Mesero", new Object[] {pedido});
+			System.out.println("Entro a la crecion de un agente");
+		} catch (StaleProxyException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+    }
+    
     /*
     public void iniciar() {
         vista.setVisible(true);
@@ -54,20 +97,7 @@ public class ControladorCliente implements ActionListener{
         vista.pagar.setEnabled(true);
     }
     
-    public void pagar(){
-        try {
-            Socket socket = new Socket("192.168.1.1",5000);
-            DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
-            String efectivo = vista.efectivo.getText();
-            salida.writeUTF(pedido + efectivo + "," + pago_final);
-            salida.close();
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"Error: " + ex.getMessage());
-        }
-        vista.total.setText("");
-        vista.efectivo.setText("");
-        pedido_pizzas = new ArrayList<>();
-    }
+    
     
     public void agregarProducto(){
         
@@ -97,7 +127,7 @@ public class ControladorCliente implements ActionListener{
         vista.cantidad.setText("");
         vista.id.setText("");
     }
-*/
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
@@ -116,5 +146,13 @@ public class ControladorCliente implements ActionListener{
             break;
         }
     }
+    */
+    public ControladorCliente() {
+        
+    }
+    public ControladorCliente(String a) {
+        p.setVisible(true); 
+    }
+    
     
 }

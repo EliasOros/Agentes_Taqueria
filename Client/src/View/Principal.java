@@ -1,17 +1,27 @@
 package View;
 
+import Controller.ControladorCliente;
+import Model.Vender.Prod;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 public class Principal extends JFrame {
-	
+	private ArrayList<Prod> pedido;
+        private ControladorCliente cc;
 	public Principal() {
 		
 		setForeground(Color.WHITE);
@@ -44,18 +54,40 @@ public class Principal extends JFrame {
 		btnIniciarOrden.setForeground(new Color(255, 255, 0));
 		btnIniciarOrden.setBounds(72, 126, 174, 76);
 		getContentPane().add(btnIniciarOrden);
+		btnIniciarOrden.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                
+	            	Orden orden = new Orden();
+                        if (orden.getCc()!=null) {
+                            setCc(orden.getCc());
+                            
+                        }
+                        orden.setVisible(true);
+	            	// Close the current window
+	                JFrame currentFrame = (JFrame) SwingUtilities.getRoot((Component) e.getSource());
+	                currentFrame.dispose();
+	            	
+	            }
+	        });
 		
-		
-		setVisible(true);
+                
 	}
 
-	
-	
-	/*
-	public static void main(String[] args) {
-		
-		Principal pr = new Principal();
+    public ControladorCliente getCc() {
+        return cc;
+    }
 
-	}
-	*/
+    public void setCc(ControladorCliente cc) {
+        this.cc = cc;
+    }
+
+    public ArrayList<Prod> getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(ArrayList<Prod> pedido) {
+        this.pedido = pedido;
+    }
+
 }

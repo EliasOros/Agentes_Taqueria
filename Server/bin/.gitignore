@@ -1,4 +1,5 @@
-/Resources/
 /Controller/
 /Model/
+/Resources/
 /View/
+/.gitignore
